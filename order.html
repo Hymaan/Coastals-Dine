@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Online - The Coastal Dine</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">THE COASTAL DINE</a>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/menu">Menu</a></li>
+                        <li><a href="/order">Order Online</a></li>
+                        <li><a href="/#reservations">Reservations</a></li>
+                        <li><a href="/#reviews">Reviews</a></li>
+                        <li><a href="/#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 3rem 0;">
+        <div class="container">
+            <h1>Order Online</h1>
+            <p class="hero-subtitle">Enjoy our delicious food delivered to your doorstep</p>
+            <div style="margin-top: 1rem;">
+                <button class="btn btn-secondary" onclick="viewCart()" style="position: relative;">
+                    View Cart (<span id="cartCount">0</span>)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="container">
+            <div id="menuCategories"></div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Your Order</h3>
+                <button class="modal-close" onclick="closeCart()">&times;</button>
+            </div>
+            <div id="cartItems"></div>
+            <div style="border-top: 2px solid var(--border-color); padding-top: 1rem; margin-top: 1rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">
+                    <span>Total:</span>
+                    <span id="cartTotal">SAR 0.00</span>
+                </div>
+                <button class="btn btn-primary" style="width: 100%;" onclick="proceedToCheckout()">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Checkout</h3>
+                <button class="modal-close" onclick="closeCheckout()">&times;</button>
+            </div>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="customerName">Full Name *</label>
+                    <input type="text" id="customerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone">Phone Number *</label>
+                    <input type="tel" id="customerPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerAddress">Delivery Address *</label>
+                    <textarea id="customerAddress" required rows="3"></textarea>
+                </div>
+                <div style="background: var(--secondary-color); padding: 1rem; margin: 1rem 0; border-left: 3px solid var(--primary-color);">
+                    <strong>Order Summary</strong>
+                    <div id="checkoutSummary" style="margin-top: 0.5rem;"></div>
+                    <div style="font-size: 1.25rem; font-weight: bold; margin-top: 1rem; color: var(--primary-color);">
+                        Total: <span id="checkoutTotal"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Coastal Dine</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Family Restaurant in Jubail City Center offering exceptional dining experiences since 2020.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="/">Home</a>
+                    <a href="/menu">Menu</a>
+                    <a href="/order">Order Online</a>
+                    <a href="/#reservations">Reservations</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p style="color: rgba(255,255,255,0.7);">
+                        Phone: 057 097 2313<br>
+                        Prince Mashhoor Road<br>
+                        Al Jubail, Saudi Arabia
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Coastal Dine Family Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/order.js"></script>
+</body>
+</html>

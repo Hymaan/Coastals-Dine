@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - The Coastal Dine</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen">
+        <div style="min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--secondary-color);">
+            <div class="card" style="max-width: 400px; width: 90%;">
+                <div class="card-header">
+                    <h2 class="card-title">Admin Login</h2>
+                    <p style="color: var(--text-light);">The Coastal Dine Management</p>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                </form>
+                <div id="loginError" class="alert alert-error hidden" style="margin-top: 1rem;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="hidden">
+        <div class="admin-header">
+            <div class="container">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h2 style="color: white;">Admin Dashboard</h2>
+                        <p style="color: var(--primary-color); margin: 0;">The Coastal Dine Management System</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="logout()">Logout</button>
+                </div>
+                <div class="admin-nav">
+                    <button class="active" onclick="showSection('overview')">Overview</button>
+                    <button onclick="showSection('menu')">Menu Management</button>
+                    <button onclick="showSection('reservations')">Reservations</button>
+                    <button onclick="showSection('orders')">Orders</button>
+                    <button onclick="showSection('reviews')">Reviews</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="padding: 2rem;">
+            <!-- Overview Section -->
+            <div id="overviewSection" class="admin-section">
+                <h2>Dashboard Overview</h2>
+                <div class="stats-grid" id="statsGrid">
+                    <div class="spinner"></div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Activity</h3>
+                    </div>
+                    <p>Quick access to pending items requiring attention</p>
+                    <div style="display: grid; gap: 1rem; margin-top: 1rem;">
+                        <button class="btn btn-secondary" onclick="showSection('reservations')">View Pending Reservations</button>
+                        <button class="btn btn-secondary" onclick="showSection('orders')">View Pending Orders</button>
+                        <button class="btn btn-secondary" onclick="showSection('reviews')">Moderate Reviews</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Management Section -->
+            <div id="menuSection" class="admin-section hidden">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h2>Menu Management</h2>
+                    <button class="btn btn-primary" onclick="openMenuItemModal()">Add New Item</button>
+                </div>
+                <div class="card">
+                    <div id="menuItemsTable"></div>
+                </div>
+            </div>
+
+            <!-- Reservations Section -->
+            <div id="reservationsSection" class="admin-section hidden">
+                <h2>Reservations</h2>
+                <div class="card">
+                    <div id="reservationsTable"></div>
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div id="ordersSection" class="admin-section hidden">
+                <h2>Orders</h2>
+                <div class="card">
+                    <div id="ordersTable"></div>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div id="reviewsSection" class="admin-section hidden">
+                <h2>Reviews Management</h2>
+                <div class="card">
+                    <div id="reviewsTable"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Item Modal -->
+    <div id="menuItemModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="menuItemModalTitle">Add Menu Item</h3>
+                <button class="modal-close" onclick="closeMenuItemModal()">&times;</button>
+            </div>
+            <form id="menuItemForm">
+                <input type="hidden" id="itemId">
+                <div class="form-group">
+                    <label for="itemCategory">Category *</label>
+                    <select id="itemCategory" required>
+                        <option value="">Select category</option>
+                        <option value="1">Appetizers</option>
+                        <option value="2">Main Course</option>
+                        <option value="3">Seafood Specials</option>
+                        <option value="4">Desserts</option>
+                        <option value="5">Beverages</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="itemName">Name *</label>
+                    <input type="text" id="itemName" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemDescription">Description *</label>
+                    <textarea id="itemDescription" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="itemPrice">Price (SAR) *</label>
+                    <input type="number" id="itemPrice" step="0.01" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="itemImage">Image URL</label>
+                    <input type="text" id="itemImage" placeholder="/images/dish.jpg">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="itemAvailable" checked> Available
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="itemFeatured"> Featured Item
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Save Menu Item</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div id="orderDetailsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Order Details</h3>
+                <button class="modal-close" onclick="closeOrderDetailsModal()">&times;</button>
+            </div>
+            <div id="orderDetailsContent"></div>
+        </div>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html>

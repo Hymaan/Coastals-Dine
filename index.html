@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Coastal Dine - Family Restaurant in Jubail</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">THE COASTAL DINE</a>
+                <nav>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/menu">Menu</a></li>
+                        <li><a href="/order">Order Online</a></li>
+                        <li><a href="#reservations">Reservations</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>THE COASTAL DINE</h1>
+            <p class="hero-subtitle">Family Restaurant in Jubail City Center</p>
+            <p>Experience elegant dining in a warm, family-friendly atmosphere</p>
+            <div style="margin-top: 2rem;">
+                <a href="/menu" class="btn btn-primary">View Our Menu</a>
+                <a href="#reservations" class="btn btn-secondary" style="margin-left: 1rem;">Make a Reservation</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">4.5★</div>
+                    <div class="stat-label">Customer Rating</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">140+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Daily</div>
+                    <div class="stat-label">Open Until 11 PM</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2 style="text-align: center;">Why Choose The Coastal Dine</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;">Experience the perfect blend of comfort, quality, and convenience at Jubail's premier family restaurant</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🍽️</div>
+                    <h3 class="feature-title">Dine-In Excellence</h3>
+                    <p>Clean, family-friendly seating with a relaxed ambiance perfect for gatherings</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚗</div>
+                    <div class="feature-title">No-Contact Delivery</div>
+                    <p>Safe and fast delivery right to your doorstep with careful packaging</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <div class="feature-title">Top Rated</div>
+                    <p>4.5 star rating from over 140 satisfied customers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <div class="feature-title">Central Location</div>
+                    <p>Easy to reach in Jubail City Center on Prince Mashhoor Road</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="menu-section" id="featured">
+        <div class="container">
+            <h2 style="text-align: center;">Featured Dishes</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;">Discover our chef's specialties and customer favorites</p>
+            
+            <div class="menu-grid" id="featuredMenuGrid">
+                <div class="spinner"></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="/menu" class="btn btn-primary">View Full Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <h2 style="text-align: center;">What Our Guests Say</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;">Read testimonials from our valued customers</p>
+            
+            <div class="reviews-grid" id="reviewsGrid">
+                <div class="spinner"></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <button class="btn btn-primary" onclick="openReviewModal()">Leave a Review</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="reservations">
+        <div class="container">
+            <h2 style="text-align: center;">Make a Reservation</h2>
+            <p style="text-align: center; max-width: 600px; margin: 0 auto;">Reserve your table for an unforgettable dining experience</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Reservation Form</h3>
+                    <form id="reservationForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Time *</label>
+                            <input type="time" id="time" name="time" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Number of Guests *</label>
+                            <input type="number" id="guests" name="guests" min="1" max="20" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="requests">Special Requests</label>
+                            <textarea id="requests" name="requests"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Reserve Table</button>
+                    </form>
+                </div>
+
+                <div class="contact-info" id="contact">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            <a href="tel:0570972313">057 097 2313</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Address</strong><br>
+                            Prince Mashhoor Road<br>
+                            Al Jubail City Center<br>
+                            Jubail, Saudi Arabia
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <strong>Hours</strong><br>
+                            Open Daily<br>
+                            Until 11:00 PM
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="036a6d656c43606c627077626f676a6d662d606c6e">[email&#160;protected]</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>The Coastal Dine</h3>
+                    <p style="color: rgba(255,255,255,0.7);">Family Restaurant in Jubail City Center offering exceptional dining experiences since 2020.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="/">Home</a>
+                    <a href="/menu">Menu</a>
+                    <a href="/order">Order Online</a>
+                    <a href="#reservations">Reservations</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p style="color: rgba(255,255,255,0.7);">
+                        Phone: 057 097 2313<br>
+                        Prince Mashhoor Road<br>
+                        Al Jubail, Saudi Arabia
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Coastal Dine Family Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Leave a Review</h3>
+                <button class="modal-close" onclick="closeReviewModal()">&times;</button>
+            </div>
+            <form id="reviewForm">
+                <div class="form-group">
+                    <label for="reviewName">Your Name *</label>
+                    <input type="text" id="reviewName" required>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating *</label>
+                    <select id="rating" required>
+                        <option value="">Select rating</option>
+                        <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                        <option value="4">⭐⭐⭐⭐ Very Good</option>
+                        <option value="3">⭐⭐⭐ Good</option>
+                        <option value="2">⭐⭐ Fair</option>
+                        <option value="1">⭐ Poor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reviewComment">Your Review *</label>
+                    <textarea id="reviewComment" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Sub
